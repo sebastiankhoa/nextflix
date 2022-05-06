@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { Box, Flex, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
-import {
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalFooter,
-	ModalBody,
-	ModalCloseButton,
-	Button,
-	useDisclosure,
-	Flex,
-	Box,
-	Text,
-} from "@chakra-ui/react";
 import { useRecoilState } from "recoil";
-import millify from "millify";
-
-import { ModalState } from "../recoil/modalState";
-import { VideoState } from "../recoil/modalState";
+import { ModalState, VideoState } from "../recoil/modalState";
 
 const ModalVideo = () => {
 	const [trailer, setTrailer] = useState("");
@@ -76,8 +60,8 @@ const ModalVideo = () => {
 									{/* left */}
 									<Text>Ngày ra mắt: {data?.release_date || data?.frist_air_date}</Text>
 									<Text>Độ dài phim: {data?.runtime} phút</Text>
-									<Text>Kinh Phí: ${millify(data?.budget)}</Text>
-									<Text>Doanh Thu: ${millify(data?.revenue)} </Text>
+									<Text>Kinh Phí: ${data?.budget}</Text>
+									<Text>Doanh Thu: ${data?.revenue} </Text>
 									<Text>Quốc gia sản xuất: {data?.production_countries[0].name}</Text>
 									<Flex gap="2">
 										<Text>Thể Loại:</Text>
